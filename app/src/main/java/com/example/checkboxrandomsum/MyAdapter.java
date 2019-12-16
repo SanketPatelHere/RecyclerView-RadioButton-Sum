@@ -128,6 +128,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }  //view holder is not reusable = for new item = because it different type
     // = so not bound for new items
 
+
+    
     @Override
     public long getItemId(int position) {
         return position;
