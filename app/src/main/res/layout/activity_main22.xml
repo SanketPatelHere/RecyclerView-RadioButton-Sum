@@ -40,14 +40,14 @@
         android:layout_below="@+id/rv"
         android:orientation="vertical">
 
-        <Button
+       <!-- <Button
             android:id="@+id/btnSum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sum"
             android:textSize="35sp"
             android:background="#ddccaa"/>
-
+-->
         <TextView
             android:id="@+id/tvAnswer"
             android:layout_width="match_parent"

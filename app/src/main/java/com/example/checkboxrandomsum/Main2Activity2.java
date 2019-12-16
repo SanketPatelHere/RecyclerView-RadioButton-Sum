@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -16,9 +17,11 @@ import java.util.ArrayList;
 public class Main2Activity2 extends AppCompatActivity {
     RadioGroup radioGroup;
     RecyclerView rv;
+    TextView tvAnswer;
     ArrayList<Pojo> lst;
     MyAdapter adapter;
     MyListener listener;
+    int sum = 0;
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class Main2Activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main22);
         //radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
         rv = (RecyclerView) findViewById(R.id.rv);
+        tvAnswer = (TextView) findViewById(R.id.tvAnswer);
         lst = new ArrayList<>();
 
         int buttons = 50;
@@ -45,7 +49,10 @@ public class Main2Activity2 extends AppCompatActivity {
             @Override
             public void onClick(String position, ArrayList<String> finalList) {
                 Toast.makeText(Main2Activity2.this, "Click all = "+position+", "+finalList, Toast.LENGTH_SHORT).show();
-
+                for (int i=0; i<finalList.size(); i++){
+                    sum += Integer.parseInt(finalList.get(i));
+                }
+                tvAnswer.setText("Answer = "+sum);
             }
 
             @Override

@@ -1,6 +1,7 @@
 package com.example.checkboxrandomsum;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +45,33 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         Pojo dp = lst.get(position);
         holder.r1.setText((position+1)+"");
         holder.r1.setTag((position+1)+"");
+        //getAdapterPosition();
+
+        holder.r1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                boolean isCheckedButton = holder.r1.isChecked();
+                Log.i("My isCheckedButton = ",isCheckedButton+"");
+                Log.i("My isChecked = ",isChecked+"");
+                if(isChecked==true)
+                {
+                    Log.i("My aaaaaa = ","true");
+                }
+                else
+                {
+                    Log.i("My bbbbbb = ","false");
+                }
+                finalList = new ArrayList<>();
+                finalList.add(holder.r1.getText()+"");
+                listener.onClick(holder.r1.getText()+"", finalList);
+
+            }
+        });
+
 
         //holder.r1.setChecked(lastSelectedPosition == position); //true
         //holder.r1.setChecked(true);
-        holder.r1.setOnClickListener(new View.OnClickListener() {
+        /*holder.r1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rowSelectedFlag = true;
@@ -84,7 +108,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 lastCheckedPos = clickPos;
                 Toast.makeText(MyAdapter.this.context, "Selected = "+clickPos, Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
 
     @Override
@@ -97,7 +121,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(View itemView) {
             super(itemView);
             r1 = (RadioButton)itemView.findViewById(R.id.radioButton);
-            finalList = new ArrayList<>();
+            //boolean checked = r1.isChecked();
+            Log.i("My getAdapterPosition ",getAdapterPosition()+"");
+            //Log.i("My checked ",checked+"");
            /*r1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -106,6 +132,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     finalList.add(r1.getText()+"");
                     //listener.onClick(r1.getText()+"");
                     listener.onClick(r1.getText()+"", finalList);
+                    boolean isCheckedButton = r1.isChecked();
+                    switch (buttonView.getId())
+                    {
+                        case R.id.radioButton:
+                            if(isCheckedButton)
+                        {
+                            Log.i("My checked",isCheckedButton+"");
+                            r1.setChecked(false);
+                        }
+                        else
+                        {
+                            Log.i("My unchecked",isCheckedButton+"");
+                            r1.setChecked(true);
+                        }
+
+                    }
                 }
             });*/
             /*r1.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +157,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     //notifyDataSetChanged();
                     //Toast.makeText(MyAdapter.this.context, "checked = "+r1.getText(), Toast.LENGTH_SHORT).show();
                     listener.onClick(r1.getText()+"");
+
 
                 }
             });*/
@@ -129,9 +172,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     // = so not bound for new items
 
 
-    
+
     @Override
     public long getItemId(int position) {
         return position;
     }
+
+    
 }
