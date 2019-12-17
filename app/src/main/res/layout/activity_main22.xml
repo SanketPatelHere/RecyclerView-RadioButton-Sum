@@ -48,12 +48,30 @@
             android:textSize="35sp"
             android:background="#ddccaa"/>
 -->
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:visibility="gone"
+            android:textSize="35sp"
+            android:background="#ddccaa"/>
         <TextView
             android:id="@+id/tvAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Answer = "
             android:textSize="35sp"
+            android:background="#ccddaa"/>
+
+        <TextView
+            android:id="@+id/tvList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Radiobutton List = "
+            android:textSize="35sp"
+            android:visibility="gone"
+            android:singleLine="true"
             android:background="#ccddaa"/>
     </LinearLayout>
 
