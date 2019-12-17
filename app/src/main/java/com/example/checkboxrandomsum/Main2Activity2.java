@@ -139,7 +139,8 @@ public class Main2Activity2 extends AppCompatActivity {
                         }
                         tvAnswer.setText("Answer = "+sum);
                         tvList.setText(newlst+"");
-
+                        int c = getTotal(lst);
+                        Toast.makeText(Main2Activity2.this, "Answer = "+c, Toast.LENGTH_SHORT).show();
 
 
 
@@ -160,5 +161,17 @@ public class Main2Activity2 extends AppCompatActivity {
             rbn.setText("RadioButton"+i);
             radioGroup.addView(rbn);
         }*/
+    }
+
+    public int getTotal(ArrayList<Pojo> lst2)
+    {
+        int o = 0;
+        for (int i = 0; i < lst2.size(); i++) {
+            if(lst.get(i).getSelected())
+            {
+                o = o+lst.get(i).getI();
+            }
+        }
+        return o;
     }
 }

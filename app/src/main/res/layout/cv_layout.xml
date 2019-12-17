@@ -6,6 +6,7 @@
     <RelativeLayout
         android:id="@+id/layoutContainer"
         android:layout_width="match_parent"
+        android:foreground="?selectableItemBackground"
         android:layout_height="wrap_content">
 
     <RadioButton

@@ -215,7 +215,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.r1.setText((position+1)+"");
         holder.r1.setTag((position+1)+"");
         //holder.setIsRecyclable(false);
-        if(lst.get(position).getSelected()==true)
+        if(lst.get(position).getSelected())
         {
             holder.r1.setChecked(true);
         }
