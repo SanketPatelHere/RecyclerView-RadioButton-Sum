@@ -139,6 +139,8 @@ public class Main2Activity2 extends AppCompatActivity {
                         }
                         tvAnswer.setText("Answer = "+sum);
                         tvList.setText(newlst+"");
+
+                        //or = only one method
                         int c = getTotal(lst);
                         Toast.makeText(Main2Activity2.this, "Answer = "+c, Toast.LENGTH_SHORT).show();
 
@@ -163,6 +165,7 @@ public class Main2Activity2 extends AppCompatActivity {
         }*/
     }
 
+    //or = only one method
     public int getTotal(ArrayList<Pojo> lst2)
     {
         int o = 0;
